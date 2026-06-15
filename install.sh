@@ -129,16 +129,8 @@ run_if_exists "./scripts/setup-node.sh"
 ###############################################################################
 
 echo ""
-read -r -p "Apply macOS defaults? This changes Dock, Finder, scrolling, desktop, hot corners, etc. [y/N] " answer
-
-case "$answer" in
-  [yY][eE][sS]|[yY])
-    run_if_exists "./macos/setup-macos.sh"
-    ;;
-  *)
-    echo "Skipping macOS defaults."
-    ;;
-esac
+echo "Applying macOS defaults..."
+run_if_exists "./macos/setup-macos.sh"
 
 ###############################################################################
 # Done
