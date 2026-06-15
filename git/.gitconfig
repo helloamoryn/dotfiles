@@ -1,0 +1,18 @@
+[user]
+  name = amory
+  email = hello.amoryn@gmail.com
+
+[core]
+  editor = nvim
+
+[init]
+  defaultBranch = main
+
+[pull]
+  rebase = false
+
+[push]
+  autoSetupRemote = true
+
+[rerere]
+  enabled = true
