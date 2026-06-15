@@ -1,0 +1,29 @@
+# Amoryn
+# Minimal black, red, and white theme for Ghostty.
+
+background = #050505
+foreground = #f5f5f5
+
+cursor-color = #dc143c
+cursor-text = #050505
+
+selection-background = #dc143c
+selection-foreground = #ffffff
+
+# ANSI palette
+palette = 0=#050505
+palette = 1=#dc143c
+palette = 2=#f5f5f5
+palette = 3=#dc143c
+palette = 4=#f5f5f5
+palette = 5=#dc143c
+palette = 6=#f5f5f5
+palette = 7=#f5f5f5
+palette = 8=#404040
+palette = 9=#ff335f
+palette = 10=#ffffff
+palette = 11=#ff335f
+palette = 12=#ffffff
+palette = 13=#ff335f
+palette = 14=#ffffff
+palette = 15=#ffffff
