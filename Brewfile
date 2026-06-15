@@ -5,9 +5,9 @@ brew "git"
 brew "gh"
 brew "stow"
 
-# JavaScript / TypeScript development
+# Node development
 brew "fnm"
-brew "pnpm"
+brew "corepack"
 
 # Editor
 brew "neovim"
