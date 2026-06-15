@@ -30,6 +30,9 @@ cask "visual-studio-code"
 # Terminal
 cask "ghostty"
 
+# AI coding agents
+cask "codex"
+
 # Terminal/font rice
 cask "font-jetbrains-mono-nerd-font"
 

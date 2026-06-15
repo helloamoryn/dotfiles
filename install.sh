@@ -1,0 +1,142 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+echo "Starting dotfiles installation..."
+
+###############################################################################
+# Helpers
+###############################################################################
+
+backup_if_regular_file() {
+  local target="$1"
+
+  if [[ -f "$target" && ! -L "$target" ]]; then
+    local backup="${target}.backup.$(date +%Y%m%d%H%M%S)"
+    echo "Backing up $target to $backup"
+    mv "$target" "$backup"
+  fi
+}
+
+load_homebrew() {
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  else
+    echo "Homebrew was not found."
+    exit 1
+  fi
+}
+
+run_if_exists() {
+  local script="$1"
+
+  if [[ -x "$script" ]]; then
+    "$script"
+  else
+    echo "Skipping $script because it does not exist or is not executable."
+  fi
+}
+
+stow_if_exists() {
+  local package="$1"
+
+  if [[ -d "$package" ]]; then
+    echo "Stowing $package..."
+    stow --dir="$PWD" --target="$HOME" --restow "$package"
+  else
+    echo "Skipping $package because directory does not exist."
+  fi
+}
+
+###############################################################################
+# Homebrew
+###############################################################################
+
+echo "Checking Homebrew..."
+run_if_exists "./scripts/install-homebrew.sh"
+
+# Important:
+# scripts/install-homebrew.sh runs in a child process.
+# So we must load Homebrew again inside this install.sh process.
+load_homebrew
+
+echo "Homebrew loaded: $(brew --version | head -n 1)"
+
+###############################################################################
+# Homebrew trust
+###############################################################################
+
+# AeroSpace is distributed through a third-party Homebrew tap.
+# Trust only the specific AeroSpace cask, not the whole tap.
+brew tap nikitabobko/tap
+brew trust --cask nikitabobko/tap/aerospace || true
+
+###############################################################################
+# Homebrew packages
+###############################################################################
+
+echo "Installing Homebrew packages from Brewfile..."
+brew bundle
+
+###############################################################################
+# Directories
+###############################################################################
+
+echo "Creating config directories..."
+mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.local/bin"
+mkdir -p "$HOME/bin"
+
+###############################################################################
+# Backup existing config files before stow
+###############################################################################
+
+backup_if_regular_file "$HOME/.zshrc"
+backup_if_regular_file "$HOME/.zprofile"
+
+###############################################################################
+# Stow dotfiles
+###############################################################################
+
+echo "Stowing dotfiles..."
+
+stow_if_exists "zsh"
+stow_if_exists "git"
+stow_if_exists "starship"
+stow_if_exists "ghostty"
+stow_if_exists "aerospace"
+
+###############################################################################
+# Node.js
+###############################################################################
+
+echo "Setting up Node.js..."
+run_if_exists "./scripts/setup-node.sh"
+
+###############################################################################
+# macOS defaults
+###############################################################################
+
+echo ""
+read -r -p "Apply macOS defaults? This changes Dock, Finder, scrolling, desktop, hot corners, etc. [y/N] " answer
+
+case "$answer" in
+  [yY][eE][sS]|[yY])
+    run_if_exists "./macos/setup-macos.sh"
+    ;;
+  *)
+    echo "Skipping macOS defaults."
+    ;;
+esac
+
+###############################################################################
+# Done
+###############################################################################
+
+echo ""
+echo "Dotfiles installation complete."
+echo "Open a new terminal window so zsh, Homebrew, fnm, Starship, and other shell changes reload cleanly."
