@@ -1,0 +1,19 @@
+# Theme
+theme = amoryn
+
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+
+# Window
+window-padding-x = 12
+window-padding-y = 10
+macos-titlebar-style = hidden
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
+
+# Keyboard
+macos-option-as-alt = true
