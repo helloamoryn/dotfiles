@@ -19,6 +19,7 @@ brew "bat"
 brew "ripgrep"
 brew "fd"
 brew "fzf"
+brew "fzf-tab"
 brew "jq"
 brew "starship"
 

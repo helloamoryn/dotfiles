@@ -196,6 +196,20 @@ if command -v fzf >/dev/null 2>&1 && command -v brew >/dev/null 2>&1; then
 fi
 
 ###############################################################################
+# fzf-tab
+###############################################################################
+
+# fzf-tab replaces zsh's completion menu with an fzf-powered picker.
+# This makes Tab fuzzy-search files, directories, git refs, command options, etc.
+if command -v brew >/dev/null 2>&1; then
+  FZF_TAB_PATH="$(brew --prefix)/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh"
+
+  if [[ -f "$FZF_TAB_PATH" ]]; then
+    source "$FZF_TAB_PATH"
+  fi
+fi
+
+###############################################################################
 # Starship
 ###############################################################################
 
