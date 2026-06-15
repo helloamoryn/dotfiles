@@ -13,6 +13,7 @@ brew "corepack"
 brew "neovim"
 
 # Terminal quality-of-life
+brew "tmux"
 brew "zoxide"
 brew "eza"
 brew "bat"
