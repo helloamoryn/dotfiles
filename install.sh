@@ -104,6 +104,7 @@ mkdir -p "$HOME/bin"
 
 backup_if_regular_file "$HOME/.zshrc"
 backup_if_regular_file "$HOME/.zprofile"
+backup_if_regular_file "$HOME/.hushlogin"
 
 ###############################################################################
 # Stow dotfiles
