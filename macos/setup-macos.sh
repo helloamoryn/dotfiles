@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 echo "Applying macOS settings..."
 
@@ -9,7 +9,8 @@ echo "Applying macOS settings..."
 ###############################################################################
 
 # Dark mode
-osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true'
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true' \
+  || echo "Skipping dark mode because System Events was not available."
 
 # Graphite / neutral accent
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool false

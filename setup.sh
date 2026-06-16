@@ -120,7 +120,7 @@ run_if_exists "./scripts/install-homebrew.sh"
 
 # Important:
 # scripts/install-homebrew.sh runs in a child process.
-# So we must load Homebrew again inside this install.sh process.
+# So we must load Homebrew again inside this setup process.
 load_homebrew
 
 echo "Homebrew loaded: $(brew --version | head -n 1)"
