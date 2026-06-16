@@ -4,10 +4,6 @@
   <img src="./assets/background/amoryn-background-banner.png" width="100%" alt="Amoryn desktop background banner" />
 </p>
 
-<p align="center">
-  macOS dotfiles for a focused black, red, and white developer setup.
-</p>
-
 This repository contains Amoryn's personal macOS configuration for the shell, terminal, window manager, prompt, Node.js tooling, and agent workflow. Dotfiles are managed with GNU Stow and bootstrapped through a single setup script.
 
 ## Stack
