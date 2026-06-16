@@ -1,27 +1,16 @@
-# Amoryn's Dotfiles
+# Amoryn Dotfiles
 
-macOS dotfiles for Amoryn's shell, terminal, window manager, tmux, Node.js tooling, and Codex setup. Configs are managed with GNU Stow from this repository.
+<p align="center">
+  <img src="./assets/avatar/amoryn-profile.png" width="120" alt="Amoryn avatar" />
+</p>
 
-## Setup
+<p align="center">
+  macOS dotfiles for a focused black, red, and white developer setup.
+</p>
 
-From the repo root:
+This repository contains Amoryn's personal macOS configuration for the shell, terminal, window manager, prompt, Node.js tooling, and agent workflow. Dotfiles are managed with GNU Stow and bootstrapped through a single setup script.
 
-```sh
-./setup.sh
-```
-
-The setup script installs or checks Xcode Command Line Tools, Homebrew packages from `Brewfile`, creates common config directories, stows dotfiles into `$HOME`, sets up Node.js through `fnm`, starts user services, and applies macOS defaults.
-
-During interactive setup, it can also set the macOS user picture and desktop background from repo assets. To run those steps directly:
-
-```sh
-./scripts/set-user-picture.sh
-./scripts/set-desktop-background.sh
-```
-
-Edit configs in this repo, then rerun `./setup.sh` or restow the relevant package. Do not edit the generated symlinks directly in `$HOME` or `~/.config`.
-
-## Current Stack
+## Stack
 
 - Homebrew for packages and apps
 - zsh for the shell
@@ -31,27 +20,44 @@ Edit configs in this repo, then rerun `./setup.sh` or restow the relevant packag
 - JankyBorders for focused window borders
 - tmux for terminal multiplexing
 - fnm and Corepack for Node.js tooling
+- Raycast as a compact launcher
 - Codex for agent workflows
 
-Neovim/LazyVim is planned, but not set up yet.
+Neovim/LazyVim is planned, but not configured yet.
 
-## tmux Basics
+## Setup
+
+Clone the repository, then run the setup script:
+
+```sh
+git clone <repo-url> ~/Code/dotfiles
+cd ~/Code/dotfiles
+./setup.sh
+```
+
+`setup.sh` installs or checks system prerequisites, runs `brew bundle`, creates config directories, stows dotfiles into `$HOME`, sets up Node.js, starts user services, and applies macOS defaults.
+
+Edit configs in this repository, then rerun `./setup.sh` or restow the relevant package. Do not edit generated symlinks directly in `$HOME` or `~/.config`.
+
+## Structure
+
+- `setup.sh` is the main bootstrap entry point.
+- `Brewfile` defines Homebrew packages, casks, and taps.
+- `zsh/`, `git/`, `tmux/`, `ghostty/`, `starship/`, and `aerospace/` are Stow packages.
+- `macos/` contains macOS defaults.
+- `scripts/` contains focused setup helpers.
+- `assets/` stores profile and desktop images used by setup helpers.
+
+## tmux
 
 - Prefix: `Ctrl-Space`
 - Reload config: `Ctrl-Space r`
 - New window: `Ctrl-Space c`
-- Horizontal split: `Ctrl-Space |`
-- Vertical split: `Ctrl-Space -`
+- Split panes: `Ctrl-Space |` and `Ctrl-Space -`
 - Move between panes: `Ctrl-Space h/j/k/l`
 - Resize panes: `Ctrl-Space H/J/K/L`
 
-To reload manually:
-
-```sh
-tmux source-file ~/.tmux.conf
-```
-
-## AeroSpace Basics
+## AeroSpace
 
 - Open Ghostty: `Alt-Enter`
 - Focus windows: `Alt-h/j/k/l`
@@ -60,4 +66,5 @@ tmux source-file ~/.tmux.conf
 - Switch workspace: `Alt-1` through `Alt-9`
 - Move window to workspace: `Alt-Shift-1` through `Alt-Shift-9`
 - Enter service mode: `Alt-Shift-;`
-- In service mode: `r` reloads config, `f` flattens the workspace tree, `Space` toggles floating/tiling, and `Esc` exits.
+
+In service mode, `r` reloads config, `f` flattens the workspace tree, `Space` toggles floating/tiling, and `Esc` exits.
