@@ -41,6 +41,32 @@ run_if_exists() {
   fi
 }
 
+confirm_and_run_user_picture_setup() {
+  local script="./scripts/set-user-picture.sh"
+
+  if [[ ! -x "$script" ]]; then
+    echo "Skipping user picture setup because $script does not exist or is not executable."
+    return
+  fi
+
+  if [[ ! -t 0 ]]; then
+    echo "Skipping user picture setup because this shell is non-interactive."
+    return
+  fi
+
+  echo ""
+  read -r -p "Set macOS user picture from assets/avatar/amoryn-profile.png? [y/N] " reply
+
+  case "$reply" in
+    [Yy] | [Yy][Ee][Ss])
+      "$script"
+      ;;
+    *)
+      echo "Skipping user picture setup."
+      ;;
+  esac
+}
+
 stow_if_exists() {
   local package="$1"
 
@@ -141,6 +167,12 @@ run_if_exists "./scripts/start-services.sh"
 echo ""
 echo "Applying macOS defaults..."
 run_if_exists "./macos/setup-macos.sh"
+
+###############################################################################
+# User picture
+###############################################################################
+
+confirm_and_run_user_picture_setup
 
 ###############################################################################
 # Done
