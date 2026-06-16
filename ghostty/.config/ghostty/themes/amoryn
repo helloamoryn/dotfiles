@@ -4,26 +4,26 @@
 background = #050505
 foreground = #f5f5f5
 
-cursor-color = #dc143c
+cursor-color = #CC1619
 cursor-text = #050505
 
-selection-background = #dc143c
+selection-background = #2A0F0F
 selection-foreground = #ffffff
 
 # ANSI palette
 palette = 0=#050505
-palette = 1=#dc143c
+palette = 1=#CC1619
 palette = 2=#f5f5f5
-palette = 3=#dc143c
+palette = 3=#CC1619
 palette = 4=#f5f5f5
-palette = 5=#dc143c
+palette = 5=#CC1619
 palette = 6=#f5f5f5
 palette = 7=#f5f5f5
 palette = 8=#404040
-palette = 9=#ff335f
+palette = 9=#FF1F1F
 palette = 10=#ffffff
-palette = 11=#ff335f
+palette = 11=#FF1F1F
 palette = 12=#ffffff
-palette = 13=#ff335f
+palette = 13=#FF1F1F
 palette = 14=#ffffff
 palette = 15=#ffffff

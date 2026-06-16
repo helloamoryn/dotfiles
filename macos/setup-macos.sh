@@ -9,8 +9,8 @@ echo "Applying macOS settings..."
 ###############################################################################
 
 # Dark mode
-osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true' \
-  || echo "Skipping dark mode because System Events was not available."
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to true' ||
+  echo "Skipping dark mode because System Events was not available."
 
 # Graphite / neutral accent
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool false
@@ -75,6 +75,13 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Remove all pinned/default Dock apps
 defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock persistent-others -array
+
+###############################################################################
+# Menu bar
+###############################################################################
+
+# Automatically hide and show the menu bar.
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
 ###############################################################################
 # Mission Control / Spaces

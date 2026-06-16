@@ -9,7 +9,8 @@ font-size = 14
 window-padding-x = 12
 window-padding-y = 10
 macos-titlebar-style = hidden
-background-opacity = 0.6
+background-opacity = 0.95
+
 
 # Cursor
 cursor-style = block

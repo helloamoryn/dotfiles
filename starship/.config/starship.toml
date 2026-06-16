@@ -16,7 +16,7 @@ $character"""
 
 [character]
 success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
+error_symbol = "[➜](bold #FF1F1F)"
 vimcmd_symbol = "[←](bold green)"
 
 [directory]
@@ -58,7 +58,7 @@ symbol = " "
 
 [rust]
 format = "[$symbol($version)]($style) "
-style = "bold red"
+style = "bold #CC1619"
 symbol = " "
 
 [golang]
