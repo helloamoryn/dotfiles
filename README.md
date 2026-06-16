@@ -1,7 +1,7 @@
 # Amoryn Dotfiles
 
 <p align="center">
-  <img src="./assets/avatar/amoryn-profile.png" width="120" alt="Amoryn avatar" />
+  <img src="./assets/background/amoryn-background-banner.png" width="100%" alt="Amoryn desktop background banner" />
 </p>
 
 <p align="center">
