@@ -19,11 +19,10 @@ This repository contains Amoryn's personal macOS configuration for the shell, te
 - AeroSpace for window management
 - JankyBorders for focused window borders
 - tmux for terminal multiplexing
+- Neovim with LazyVim for editing
 - fnm and Corepack for Node.js tooling
 - Raycast as a compact launcher
 - Codex for agent workflows
-
-Neovim/LazyVim is planned, but not configured yet.
 
 ## Setup
 
@@ -43,7 +42,7 @@ Edit configs in this repository, then rerun `./setup.sh` or restow the relevant 
 
 - `setup.sh` is the main bootstrap entry point.
 - `Brewfile` defines Homebrew packages, casks, and taps.
-- `zsh/`, `git/`, `tmux/`, `ghostty/`, `starship/`, and `aerospace/` are Stow packages.
+- `zsh/`, `git/`, `tmux/`, `ghostty/`, `starship/`, `aerospace/`, and `nvim/` are Stow packages.
 - `macos/` contains macOS defaults.
 - `scripts/` contains focused setup helpers.
 - `assets/` stores profile and desktop images used by setup helpers.

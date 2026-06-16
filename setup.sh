@@ -10,10 +10,10 @@ echo "Starting dotfiles installation..."
 # Helpers
 ###############################################################################
 
-backup_if_regular_file() {
+backup_if_non_symlink_path() {
   local target="$1"
 
-  if [[ -f "$target" && ! -L "$target" ]]; then
+  if [[ -e "$target" && ! -L "$target" ]]; then
     local backup="${target}.backup.$(date +%Y%m%d%H%M%S)"
     echo "Backing up $target to $backup"
     mv "$target" "$backup"
@@ -158,10 +158,11 @@ mkdir -p "$HOME/bin"
 # Backup existing config files before stow
 ###############################################################################
 
-backup_if_regular_file "$HOME/.zshrc"
-backup_if_regular_file "$HOME/.zprofile"
-backup_if_regular_file "$HOME/.hushlogin"
-backup_if_regular_file "$HOME/.tmux.conf"
+backup_if_non_symlink_path "$HOME/.zshrc"
+backup_if_non_symlink_path "$HOME/.zprofile"
+backup_if_non_symlink_path "$HOME/.hushlogin"
+backup_if_non_symlink_path "$HOME/.tmux.conf"
+backup_if_non_symlink_path "$HOME/.config/nvim"
 
 ###############################################################################
 # Stow dotfiles
@@ -175,6 +176,7 @@ stow_if_exists "starship"
 stow_if_exists "ghostty"
 stow_if_exists "aerospace"
 stow_if_exists "tmux"
+stow_if_exists "nvim"
 
 ###############################################################################
 # Node.js
