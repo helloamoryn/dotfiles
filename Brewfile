@@ -1,4 +1,5 @@
 tap "nikitabobko/tap"
+tap "FelixKratz/formulae"
 
 # Core system/dev tools
 brew "git"
@@ -39,4 +40,5 @@ cask "codex"
 cask "font-jetbrains-mono-nerd-font"
 
 # Window management
+brew "borders"
 cask "aerospace"
