@@ -37,8 +37,8 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Free Cmd-Space and Cmd-Option-Space for Raycast.
 # Set the Raycast hotkey and compact appearance manually in Raycast settings.
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; }"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = (32, 49, 1048576); type = standard; }; }"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{ enabled = 0; value = { parameters = (32, 49, 1572864); type = standard; }; }"
 
 ###############################################################################
 # Trackpad / Mouse
@@ -191,5 +191,6 @@ echo "Restarting affected apps..."
 killall Dock || true
 killall Finder || true
 killall SystemUIServer || true
+killall cfprefsd || true
 
 echo "macOS config applied. Some settings may require logout/restart."
