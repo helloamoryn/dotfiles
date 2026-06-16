@@ -28,6 +28,7 @@ Edit configs in this repo, then rerun `./setup.sh` or restow the relevant packag
 - Ghostty for the terminal
 - Starship for the prompt
 - AeroSpace for window management
+- JankyBorders for focused window borders
 - tmux for terminal multiplexing
 - fnm and Corepack for Node.js tooling
 - Codex for agent workflows
@@ -60,3 +61,9 @@ tmux source-file ~/.tmux.conf
 - Move window to workspace: `Alt-Shift-1` through `Alt-Shift-9`
 - Enter service mode: `Alt-Shift-;`
 - In service mode: `r` reloads config, `f` flattens the workspace tree, `Space` toggles floating/tiling, and `Esc` exits.
+
+JankyBorders starts after AeroSpace launches and draws a red border around the focused window. To test it manually:
+
+```sh
+borders active_color=0xffe10600 inactive_color=0x00000000 width=3.0
+```
