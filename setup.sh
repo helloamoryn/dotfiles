@@ -134,6 +134,10 @@ echo "Homebrew loaded: $(brew --version | head -n 1)"
 brew tap nikitabobko/tap
 brew trust --cask nikitabobko/tap/aerospace || true
 
+# JankyBorders is distributed through a third-party Homebrew tap.
+brew tap FelixKratz/formulae
+brew trust --formula FelixKratz/formulae/borders || true
+
 ###############################################################################
 # Homebrew packages
 ###############################################################################
