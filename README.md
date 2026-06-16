@@ -12,10 +12,11 @@ From the repo root:
 
 The setup script installs or checks Xcode Command Line Tools, Homebrew packages from `Brewfile`, creates common config directories, stows dotfiles into `$HOME`, sets up Node.js through `fnm`, starts user services, and applies macOS defaults.
 
-During interactive setup, it can also set the macOS user picture from `assets/avatar/amoryn-profile.png`. To run that step directly:
+During interactive setup, it can also set the macOS user picture and desktop background from repo assets. To run those steps directly:
 
 ```sh
 ./scripts/set-user-picture.sh
+./scripts/set-desktop-background.sh
 ```
 
 Edit configs in this repo, then rerun `./setup.sh` or restow the relevant package. Do not edit the generated symlinks directly in `$HOME` or `~/.config`.

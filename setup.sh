@@ -67,6 +67,32 @@ confirm_and_run_user_picture_setup() {
   esac
 }
 
+confirm_and_run_desktop_background_setup() {
+  local script="./scripts/set-desktop-background.sh"
+
+  if [[ ! -x "$script" ]]; then
+    echo "Skipping desktop background setup because $script does not exist or is not executable."
+    return
+  fi
+
+  if [[ ! -t 0 ]]; then
+    echo "Skipping desktop background setup because this shell is non-interactive."
+    return
+  fi
+
+  echo ""
+  read -r -p "Set macOS desktop background from assets/background/amoryn-background.png? [y/N] " reply
+
+  case "$reply" in
+    [Yy] | [Yy][Ee][Ss])
+      "$script"
+      ;;
+    *)
+      echo "Skipping desktop background setup."
+      ;;
+  esac
+}
+
 stow_if_exists() {
   local package="$1"
 
@@ -173,6 +199,12 @@ run_if_exists "./macos/setup-macos.sh"
 ###############################################################################
 
 confirm_and_run_user_picture_setup
+
+###############################################################################
+# Desktop background
+###############################################################################
+
+confirm_and_run_desktop_background_setup
 
 ###############################################################################
 # Done
