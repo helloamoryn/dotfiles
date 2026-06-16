@@ -1,7 +1,7 @@
 # Amoryn Dotfiles
 
 <p align="center">
-  <img src="./assets/avatar/amoryn-profile.png" width="120" alt="Amoryn avatar" />
+  <img src="./assets/avatar/amoryn-profile.png" width="120" alt="Amoryn avatar" style="border-radius: 50%;" />
 </p>
 
 <p align="center">
@@ -30,7 +30,7 @@ Neovim/LazyVim is planned, but not configured yet.
 Clone the repository, then run the setup script:
 
 ```sh
-git clone <repo-url> ~/Code/dotfiles
+git clone https://github.com/helloamoryn/dotfiles ~/Code/dotfiles
 cd ~/Code/dotfiles
 ./setup.sh
 ```
