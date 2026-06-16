@@ -4,19 +4,6 @@
 # Keep it fast, readable, and focused on daily terminal workflow.
 
 ###############################################################################
-# Homebrew
-###############################################################################
-
-# Load Homebrew into the shell.
-# Apple Silicon Macs usually use /opt/homebrew.
-# Intel Macs usually use /usr/local.
-if [[ -x /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -x /usr/local/bin/brew ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-
-###############################################################################
 # Environment
 ###############################################################################
 
