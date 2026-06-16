@@ -30,6 +30,11 @@ outer.bottom = 8
 outer.top = 8
 outer.right = 8
 
+# Keep Finder windows out of the tiled layout.
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
 # Main mode: day-to-day i3-like navigation and workspace control.
 [mode.main.binding]
 
